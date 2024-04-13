@@ -17,7 +17,7 @@ export default function MediaCard() {
       <Box>
       <CardMedia
         sx={{ height: 240, width: 300, backgroundSize: "contain" ,margin: "auto" }}
-        image= "profile4.png"
+        image= "/employee-data-dashboard/profile4.png"
         title="profile image"
       />
       </Box>
