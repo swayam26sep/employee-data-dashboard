@@ -6,12 +6,22 @@ import Title from './components/title';
 import MediaCard from './components/employeecard.jsx';
 import Data from './data/data.js';
 import { Container } from '@mui/material';
+import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
+
+
+
+
 function App() {
-  const [count, setCount] = useState(0)
-console.log(Data);
+const [onLeave, setleave] = useState(true);
+console.log(onLeave);
   return (
     <Container fixed>
-<MediaCard />
+    <Stack spacing={2} direction="row">
+    <Button variant="contained">Active</Button>
+    <Button variant="contained">Inactive</Button>
+    </Stack>
+<MediaCard data={Data} />
  </Container> )
 }
 
