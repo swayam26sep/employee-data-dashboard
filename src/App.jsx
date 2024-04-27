@@ -5,24 +5,34 @@ import './App.css'
 import Title from './components/title';
 import MediaCard from './components/employeecard.jsx';
 import Data from './data/data.js';
-import { Container } from '@mui/material';
+import { Box, Container } from '@mui/material';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
-
-
+import Typography from '@mui/material/Typography';
+import Switch from '@mui/material/Switch';
 
 
 function App() {
-const [onLeave, setleave] = useState(true);
-console.log(onLeave);
+const [showOnLeave, setShowOnLeave] = useState(false);
+console.log(showOnLeave);
+
+const filteredData = showOnLeave ? Data.filter((employee)=> employee.onLeave ) : Data;
+
+const toggleOnLeave = (event) => { if(showOnLeave) {setShowOnLeave(false)} else setShowOnLeave(true) };
+
   return (
-    <Container fixed>
-    <Stack spacing={2} direction="row">
-    <Button variant="contained">Active</Button>
-    <Button variant="contained">Inactive</Button>
+    <Container fixed> 
+      <Box>
+      <Typography variant="h4" component="h1">
+       Employee Dashboard
+      </Typography>
+      </Box>
+    <Stack spacing={2} direction="row" justifycontent="center">
+    <Switch onChange= {toggleOnLeave} />
     </Stack>
-<MediaCard data={Data} />
- </Container> )
+    <MediaCard data={filteredData} />
+ </Container> 
+ );
 }
 
 export default App
